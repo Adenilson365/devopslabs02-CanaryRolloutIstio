@@ -1,0 +1,45 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: devopslabs-minikube
+  annotations:
+    nginx.ingress.kubernetes.io/service-upstream: "true"
+spec:
+  ingressClassName: nginx
+  rules:
+  - host: 
+      api-local.com
+    http:
+      paths: 
+        - path: /
+          pathType: Prefix
+          backend:
+            service:
+              name: frontend
+              port:
+                number: 80
+        - path: /products
+          pathType: ImplementationSpecific
+          backend:
+            service:
+              name: catalogo
+              port:
+                number: 3333
+  - host:
+      dev.api-local.com
+    http:
+      paths: 
+        - path: /
+          pathType: Prefix
+          backend:
+            service:
+              name: frontend
+              port:
+                number: 80
+        - path: /products
+          pathType: ImplementationSpecific
+          backend:
+            service:
+              name: catalogo
+              port:
+                number: 3333
