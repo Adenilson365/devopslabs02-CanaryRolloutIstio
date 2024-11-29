@@ -24,4 +24,12 @@
 ```
 - Dessa forma o nginx vai conseguir direcionar tráfego através do virtualService do Istio.
 
+### HPA (Horizontal Pod Autoscaling)
+- Configurar HPA para as duas versões, para ajustar a quantidade de pods automaticamente, de acordo com o volume de trafego/trabalho a versão receber.
 
+## Canary Deploy
+
+### Tradicional
+    - Criar o virtual service para cada versão. 
+    - A versão Canary recebe uma porcentagem pequena do trafego, e vamos aumentando até substituir a versão antiga 
+    - Os ajustes podem ser feitos diretamente na interface do Istio ou alterando o manifesto do virtual service.

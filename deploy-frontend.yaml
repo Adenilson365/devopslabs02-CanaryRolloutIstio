@@ -6,7 +6,7 @@ metadata:
     app: frontend
     version: v1
 spec:
-  replicas : 2
+  replicas : 1
   selector:
     matchLabels:
       app: frontend
@@ -25,10 +25,10 @@ spec:
         resources:
           requests:
             cpu: 100m
-            memory: 100Mi
+            memory: 80Mi
           limits:
             cpu: 250m
-            memory: 250Mi
+            memory: 128Mi
         envFrom:
         - configMapRef:
             name: frontend-config
@@ -60,10 +60,10 @@ spec:
         resources:
           requests:
             cpu: 100m
-            memory: 100Mi
+            memory: 80Mi
           limits:
             cpu: 250m
-            memory: 250Mi
+            memory: 128Mi
         envFrom:
         - configMapRef:
             name: frontend-config
